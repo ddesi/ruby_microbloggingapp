@@ -1,0 +1,16 @@
+<form method="post" action="/login">
+
+  <input type="text" name="email" placeholder="Email Address">
+
+   <input type="password" name="password" placeholder="Password">
+
+  <input type="submit" value="Submit">
+
+
+</form>
+
+<% if flash[:alert] %>
+	<div class="flash_alert">
+		<%= flash[:alert] %>
+	</div>
+	<% end %>
