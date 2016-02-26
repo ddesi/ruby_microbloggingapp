@@ -15,6 +15,10 @@
 </form>
 
 <% @posts.reverse.each do |post| %>
-      <strong>post: </strong><%= post.body %> || <strong> time: </strong><%= post.posttime %><br>
+      <strong>post: </strong><%= post.body %> || <strong> time: </strong><%= post.posttime %>
+      <a href="/posts/<%= post.id %>/delete">delete</a><br>
 
-  <% end %>
+<% end %>
+
+
+

@@ -84,7 +84,6 @@ get "/homepage" do
 end
 
 
-
 post "/homepage" do
 	@timestamp = Time.now.strftime("%Y-%m-%d")
 
@@ -92,4 +91,11 @@ post "/homepage" do
 
 	redirect "/homepage"
 end
+
+get "/posts/:id/delete" do
+  @post = Post.find(params[:id]).destroy
+  redirect "/homepage"
+end
+
+
 
