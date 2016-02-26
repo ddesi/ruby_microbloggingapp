@@ -1,0 +1,21 @@
+body {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	width: 100%;
+	height: 100%;
+}
+
+header {
+	border-style: 1px solid black;
+}
+#maintitle {
+	text-align: center;
+}
+
+#left{
+	float: left;
+}
+
+#right{
+	float: right;
+	margin: 0 25px 0 0;
+}

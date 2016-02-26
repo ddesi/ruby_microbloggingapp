@@ -8,6 +8,7 @@ set :database, "sqlite3:microblog.db"
 require "./models"
 
 get "/" do
+	@title_text = "I <3 Pizza"
 	if session[:user_id]
     puts "logged in"
   else
@@ -18,7 +19,7 @@ get "/" do
 end
 
 get "/signup" do
-
+	@title_text = "Sign up for Pizza"
 	erb :signup 
 end
 
@@ -29,7 +30,7 @@ post "/signup" do
 end
 
 get "/login" do
-
+	@title_text = "Login to Pizza"
 	erb :login
 end
 
@@ -56,6 +57,7 @@ get "/logout" do
 end
 
 get "/profile" do
+	@title_text = "Pizza Profile"
 		def current_user 
 			if session[:user_id]
 				@current_user = User.find(session[:user_id])
