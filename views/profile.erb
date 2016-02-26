@@ -1,7 +1,37 @@
-PROFILE
+ <nav id="navbar_profile">
+   <ul>
+     <li><a href = "/">Log Out</a></li>
+   </ul>
+ </nav>
 
 <% if flash[:notice] %>
 	<div class="flash_notice">
 		<%= flash[:notice] %>
 	</div>
+<% end %>
+
+
+
+
+<form method="post" action="/profile">
+
+  <input type="text" name="email" placeholder="Email Address">
+
+   <input type="password" name="password" placeholder="Password">
+
+  <input type="submit" value="Submit">
+
+
+</form>
+
+<%= current_user.email %>
+<br>
+<%= current_user.password %>
+
+
+<% if flash[:alert] %>
+	<div class="flash_alert">
+		<%= flash[:alert] %>
+	</div>
 	<% end %>
+

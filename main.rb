@@ -47,10 +47,6 @@ post "/login" do
 
 end
 
-get "/profile" do
-
-	erb :profile
-end
 
 get "/logout" do
 	session[:user_id] = nil
@@ -59,22 +55,40 @@ get "/logout" do
 	erb :logout
 end
 
-get "/editprofile" do
-	def current_user 
-		if session[:user_id]
-			@current_user = User.find(session[:user_id])
+get "/profile" do
+		def current_user 
+			if session[:user_id]
+				@current_user = User.find(session[:user_id])
+			else
+				redirect "/"
+
 		end
 	end
 
-	"this is edit profile"
-
-	erb :editprofile	
+	erb :profile	
 end
 
-post "/editprofile" do
-	@user = current_user.update_attributes(email: params[:email], password: params[:password])
-	redirect "/editprofile"
+post "/profile" do
 
-	erb :editprofile	
+	@user = current_user.update_attributes(email: params[:email], password: params[:password])
+	redirect "/profile"
+
+	erb :profile	
+end
+
+
+get "/homepage" do
+	# def current_post
+	# 	@current_post = Post.all
+	# end
+
+	erb :homepage
+end
+
+
+post "/homepage" do
+	@user = Post.create(body: params[:body], posttime: "<%= Time.now %>")
+	# flash[:notice] = "You have successfully registered. Please log in."
+	redirect "/homepage"
 end
 

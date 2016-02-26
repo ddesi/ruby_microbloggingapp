@@ -14,8 +14,9 @@
 ActiveRecord::Schema.define(version: 20160225195036) do
 
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id"
-    t.string  "body"
+    t.integer  "user_id"
+    t.string   "body"
+    t.datetime "posttime"
   end
 
   create_table "profiles", force: :cascade do |t|
