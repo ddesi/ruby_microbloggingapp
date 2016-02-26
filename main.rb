@@ -78,17 +78,18 @@ end
 
 
 get "/homepage" do
-	# def current_post
-	# 	@current_post = Post.all
-	# end
+		@posts = Post.all
 
 	erb :homepage
 end
 
 
+
 post "/homepage" do
-	@user = Post.create(body: params[:body], posttime: "<%= Time.now %>")
-	# flash[:notice] = "You have successfully registered. Please log in."
+	@timestamp = Time.now.strftime("%Y-%m-%d")
+
+	@post = Post.create(body: params[:body], posttime: @timestamp)
+
 	redirect "/homepage"
 end
 
