@@ -1,22 +1,25 @@
+<br><br>
+
+<p>Your email and password:</p>
+<p><%= @user.email %></p>
+<p><%= @user.password %></p>
+<!-- <a href="/profile/<%= current_user %>/delete">delete profile</a> -->
+
+<br><br>
 <form method="post" action="/profile">
-
-  <input type="text" name="email" placeholder="Email Address">
-
-   <input type="password" name="password" placeholder="Password">
-
-  <input type="submit" value="Submit">
-
-
+	<input type="email" name="email" placeholder="Edit email"><br>
+    <input type="password" name="password" placeholder="Edit password"><br><br>
+	<input type="submit" value="Edit your info">
 </form>
 
-<%= current_user.email %>
-<br>
-<%= current_user.password %>
+<form method="POST" action="/delete">
+	<input type="submit" value="Delete Your Account">
+</form>
 
 
 <% if flash[:alert] %>
 	<div class="flash_alert">
 		<%= flash[:alert] %>
 	</div>
-	<% end %>
+<% end %>
 
