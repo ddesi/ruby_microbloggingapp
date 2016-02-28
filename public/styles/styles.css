@@ -113,6 +113,24 @@ nav a:hover {
 	padding: 1em;
 }
 
+/* FLASH */
+
+.flash {
+  padding: 1em;
+  border-radius: 4px;
+  /*margin-bottom: 10px;*/
+}
+
+.notice {
+  border: 1px solid green;
+  background-color: #ccff99;
+}
+
+.alert {
+  border: 1px solid red;
+  background-color: #ff6666;
+}
+
 /* FORM */
 
 form {

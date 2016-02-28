@@ -1,8 +1,8 @@
 <br><br>
 
 <p>Your email and password:</p>
-<p><%= @user.email %></p>
-<p><%= @user.password %></p>
+<p><%= current_user.email %></p>
+<p><%= current_user.password %></p>
 <!-- <a href="/profile/<%= current_user %>/delete">delete profile</a> -->
 
 <br><br>
@@ -18,7 +18,7 @@
 
 
 <% if flash[:alert] %>
-	<div class="flash_alert">
+	<div class="flash alert">
 		<%= flash[:alert] %>
 	</div>
 <% end %>

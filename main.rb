@@ -57,7 +57,7 @@ get "/logout" do
 end
 
 get "/profile" do
-	@user = current_user
+	
 		def current_user 
 			if session[:user_id]
 				@current_user = User.find(session[:user_id])
@@ -71,11 +71,8 @@ end
 
 post "/profile" do
 
-	@user = current_user
-
-	# @user = current_user.update_attributes(email: params[:email], password: params[:password])
+	@user = current_user.update_attributes(email: params[:email], password: params[:password])
 	# we could try 
-	@user.update(email: params[:email], password: params[:password])
 	# and see if it works even if you update only one param >> nope haha
 	# it only displays the param that you edited once you click on the submit button
 	# ... we could have a separate page to edit the profile and redirect to the profile page
