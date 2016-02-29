@@ -159,6 +159,17 @@ get "/profile/:id" do
 
  end
 
+get "/users" do
+	if session[:user_id] == nil
+
+		redirect "/"
+	end
+
+	@users = User.all
+
+	erb :users
+end
+
 
 
 
