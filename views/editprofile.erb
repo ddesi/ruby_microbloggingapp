@@ -1,1 +1,28 @@
-editprofile.erb
+<br><br>
+
+<p>Your email and password:</p>
+<p><%= current_user.email %></p>
+<p><%= current_user.password %></p>
+<p><%= current_user.username %></p>
+<p><%= current_user.about %></p>
+<!-- <a href="/profile/<%= current_user %>/delete">delete profile</a> -->
+
+<br><br>
+<form method="post" action="/editprofile">
+	<input type="email" name="email" placeholder="Edit email"><br>
+    <input type="password" name="password" placeholder="Edit password"><br><br>
+    <input type="text" name="username" placeholder="Edit username"><br><br>
+    <input type="text" name="about" placeholder="Edit about"><br><br>
+	<input type="submit" value="Edit your info">
+</form>
+
+<form method="POST" action="/delete">
+	<input type="submit" value="Delete Your Account">
+</form>
+
+
+<% if flash[:alert] %>
+	<div class="flash alert">
+		<%= flash[:alert] %>
+	</div>
+<% end %>
