@@ -43,13 +43,14 @@ header {
   padding: 0;
   background-image: url("http://thumbs.dreamstime.com/z/pepperoni-pizza-closeup-appetizing-background-filling-frame-42216649.jpg");
   height: 12em;
-  border: 3px solid black;
+  border: 1px solid transparent;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #maintitle {
 	text-align: center;
 	color: #fff;
+  font-size: 3em;
 }
 
 /* NAVBAR */
@@ -62,7 +63,6 @@ nav {
   /*top: 60px;*/
   display: inline-block;
   padding: 10px 0;
-  border: 3px solid #ccc;
 }
 
 nav ul {
@@ -93,7 +93,7 @@ nav a {
   margin: 0;
   width: 120px;
   text-decoration: none;
-  color: #000;
+  color: #fff;
   -webkit-transition: 1s;
   transition: 1s;
 }
@@ -101,7 +101,8 @@ nav a {
 nav a:hover {
   background-color: #FF6B6B;
   opacity: .8;
-  color: #fff;
+  color: #000;
+  text-shadow:none;
 }
 
 

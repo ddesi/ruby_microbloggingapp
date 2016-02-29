@@ -7,6 +7,15 @@ enable :sessions
 set :database, "sqlite3:microblog.db"
 require "./models"
 
+def current_user 
+	if session[:user_id]
+		@current_user = User.find(session[:user_id])
+	else
+		redirect "/"
+	end
+end
+
+
 get "/" do
 	@title_text = "I <3 Pizza"
 	if session[:user_id]
@@ -24,7 +33,7 @@ get "/signup" do
 end
 
 post "/signup" do
-	@user = User.create(email: params[:email], password: params[:password])
+	@user = User.create(username: params[:username], email: params[:email], password: params[:password])
 	flash[:notice] = "You have successfully registered. Please log in."
 	redirect "/"
 end
@@ -48,7 +57,6 @@ post "/login" do
 
 end
 
-
 get "/logout" do
 	session[:user_id] = nil
 	redirect "/"
@@ -57,14 +65,6 @@ get "/logout" do
 end
 
 get "/profile" do
-	
-		def current_user 
-			if session[:user_id]
-				@current_user = User.find(session[:user_id])
-			else
-				redirect "/"
-		end
-	end
 
 	erb :profile	
 end
@@ -91,7 +91,7 @@ end
 
 
 get "/homepage" do
-		@posts = Post.all
+	@posts = Post.all
 
 	erb :homepage
 end
@@ -100,7 +100,7 @@ end
 post "/homepage" do
 	@timestamp = Time.now.strftime("%Y-%m-%d")
 
-	@post = Post.create(body: params[:body], posttime: @timestamp)
+	@post = Post.create(user_id: session[:user_id], body: params[:body], posttime: @timestamp)
 
 	redirect "/homepage"
 end
