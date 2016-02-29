@@ -73,10 +73,7 @@ post "/profile" do
 
 	@user = current_user.update_attributes(email: params[:email])
 	@user = current_user.update_attributes(password: params[:password])
-	# we could try 
-	# and see if it works even if you update only one param >> nope haha
-	# it only displays the param that you edited once you click on the submit button
-	# ... we could have a separate page to edit the profile and redirect to the profile page
+
 	redirect "/profile"
 
 	erb :profile
@@ -98,17 +95,42 @@ end
 
 
 post "/homepage" do
-	@timestamp = Time.now.strftime("%Y-%m-%d")
+	# @timestamp = Time.now.strftime("%Y-%m-%d")
 
-	@post = Post.create(user_id: session[:user_id], body: params[:body], posttime: @timestamp)
+	if session[:user_id] == nil
+		redirect "/"
+	else
+		Post.create(user_id: session[:user_id], body: params[:body], posttime: Time.now)
+		redirect "/homepage"
+  	end
 
-	redirect "/homepage"
+	
 end
+
+# OR
+#  post "/addPost" do 
+
+#   Post.create(user_id: current_user.id, body: params[:body], post_date: Time.now )
+
+#   redirect "/profile/#{current_user.id}"
+
+# end
 
 get "/posts/:id/delete" do
   @post = Post.find(params[:id]).destroy
   redirect "/homepage"
 end
+
+
+get "/profile/:id" do 
+	if session[:user_id] == nil
+    redirect "/"
+  	end
+
+ end
+
+
+
 
 
 
