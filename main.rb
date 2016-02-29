@@ -71,17 +71,22 @@ end
 
 get "/profile" do
 
+  @user = current_user
+  @posts = current_user.posts
+
 	erb :profile	
 end
 
-post "/profile" do
-	user = current_user
+# get "profile/:id"
+# erb :profile	
+# end
 
-	@user = current_user.update_attributes(email: params[:email])
-	@user = current_user.update_attributes(password: params[:password])
-	@user = current_user.update_attributes(username: params[:username])
-	@user = current_user.update_attributes(about: params[:about])
-	@user = current_user.update_attributes(picture: params[:picture])
+post "/profile" do
+	@user = current_user
+
+	@timestamp = Time.now.strftime("%Y-%m-%d")
+
+	@post = Post.create(user_id: session[:user_id], body: params[:body], posttime: @timestamp)
 	
 	redirect "/profile"
 
@@ -106,21 +111,16 @@ end
 
 
 post "/homepage" do
-	# @timestamp = Time.now.strftime("%Y-%m-%d")
+	@timestamp = Time.now.strftime("%Y-%m-%d")
 
-	if session[:user_id] == nil
-		redirect "/"
-	else
-		Post.create(user_id: session[:user_id], body: params[:body], posttime: Time.now)
-		redirect "/homepage"
-  	end
+	@post = Post.create(user_id: session[:user_id], body: params[:body], posttime: @timestamp)
 
-	
+	redirect "/homepage"
 end
 
 
 get "/posts/:id/delete" do
-	@post = Post.find(params[:id]) #might not work
+	@post = Post.find(params[:id]) 
 
 	if @post.user_id == session[:user_id]
 		@post.destroy
@@ -158,7 +158,6 @@ get "/profile/:id" do
   	end
 
  end
-
 
 
 

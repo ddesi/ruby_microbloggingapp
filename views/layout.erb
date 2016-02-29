@@ -15,7 +15,12 @@
 <h1 id="maintitle">Pizza MegaBlog</h1>
  <nav>
  	<ul>
+		<% if session[:user_id] %>
 	    <li id="homelink"><a href = "/">Home</a></li>
+	    <li id="homelink"><a href = "/profile">Profile</a></li>
+	    <% else %>
+	    <li id="homelink"><a href = "/">Home</a></li>
+	    <% end %>
 	 	<% if session[:user_id] %> 
 	     <li><a href="/logout">Logout</a></li>
 	    <% else %>

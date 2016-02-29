@@ -227,6 +227,7 @@ textarea:hover {
 	padding: 1em;
 }
 
+<<<<<<< HEAD
 #feed {
   position: relative;
   /*width: 30em;*/
@@ -246,7 +247,22 @@ textarea:hover {
 }
 
 
+=======
+/* profile */
+>>>>>>> 27f95f2568e6ce85d0e9a51c8202043ea8f36794
 
+#userProfile {
+  float: left;
+  text-align: left;
+  width: 300px;
+  word-wrap: break-word;
+}
+
+#userPosts {
+  float: right;
+  margin-right: 150px;
+  margin-bottom: 5px;
+}
 
 
 
