@@ -70,13 +70,14 @@ get "/profile" do
 end
 
 post "/profile" do
+	user = current_user
 
 	@user = current_user.update_attributes(email: params[:email])
 	@user = current_user.update_attributes(password: params[:password])
-	# we could try 
-	# and see if it works even if you update only one param >> nope haha
-	# it only displays the param that you edited once you click on the submit button
-	# ... we could have a separate page to edit the profile and redirect to the profile page
+	@user = current_user.update_attributes(username: params[:username])
+	@user = current_user.update_attributes(about: params[:about])
+	@user = current_user.update_attributes(picture: params[:picture])
+	
 	redirect "/profile"
 
 	erb :profile
@@ -108,6 +109,24 @@ end
 get "/posts/:id/delete" do
   @post = Post.find(params[:id]).destroy
   redirect "/homepage"
+end
+
+get "/editprofile" do
+
+	erb :editprofile
+end
+
+post "/editprofile" do
+		user = current_user
+
+	@user = current_user.update_attributes(email: params[:email])
+	@user = current_user.update_attributes(password: params[:password])
+	@user = current_user.update_attributes(username: params[:username])
+	@user = current_user.update_attributes(about: params[:about])
+	@user = current_user.update_attributes(picture: params[:picture])
+
+	redirect "/editprofile"
+
 end
 
 
