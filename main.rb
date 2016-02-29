@@ -18,14 +18,19 @@ end
 
 get "/" do
 	@title_text = "I <3 Pizza"
+
 	if session[:user_id]
-    puts "logged in"
-  else
-    puts "NOT logged in!"
-  end
+		puts "logged in"
+  	else
+    	puts "NOT logged in!"
+  	end
+
+  	@posts = Post.all
+  	@last_ten_posts = Post.last(10)
 
 	erb :index
 end
+
 
 get "/signup" do
 	@title_text = "Sign up for Pizza"
@@ -52,16 +57,16 @@ post "/login" do
 	redirect "/profile"
 
 	else flash[:alert] = "Invalid credentials. Please try again."
-	redirect "/login"
+		redirect "/login"
 	end
 
 end
 
 get "/logout" do
+	
 	session[:user_id] = nil
 	redirect "/"
 
-	erb :logout
 end
 
 get "/profile" do
@@ -94,6 +99,8 @@ end
 get "/homepage" do
 	@posts = Post.all
 
+
+
 	erb :homepage
 end
 
@@ -111,18 +118,18 @@ post "/homepage" do
 	
 end
 
-# OR
-#  post "/addPost" do 
-
-#   Post.create(user_id: current_user.id, body: params[:body], post_date: Time.now )
-
-#   redirect "/profile/#{current_user.id}"
-
-# end
 
 get "/posts/:id/delete" do
-  @post = Post.find(params[:id]).destroy
-  redirect "/homepage"
+	@post = Post.find(params[:id]) #might not work
+
+	if @post.user_id == session[:user_id]
+		@post.destroy
+		flash[:notice] = "Your post has been deleted."
+		redirect "/homepage"
+	else
+		flash[:alert] = "This is not your post!"
+		redirect "/homepage"
+	end
 end
 
 get "/editprofile" do
@@ -131,7 +138,7 @@ get "/editprofile" do
 end
 
 post "/editprofile" do
-		user = current_user
+	user = current_user
 
 	@user = current_user.update_attributes(email: params[:email])
 	@user = current_user.update_attributes(password: params[:password])
@@ -145,11 +152,16 @@ end
 
 
 get "/profile/:id" do 
+
 	if session[:user_id] == nil
     redirect "/"
   	end
 
  end
+
+
+
+
 
 
 

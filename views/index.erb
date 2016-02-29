@@ -7,3 +7,14 @@
 <h1>Welcome Pizza Lover!</h1>
 <h1>Explore the world of Pizza</h1>
 <h1>SIGN UP NOW!</h1>
+
+<div id="feed">
+  <h1>See what is going on!</h1>
+    	<% @last_ten_posts.reverse_each do |post| %>
+    	<div id="single_feed">
+    		<p>Content: <%= post.body %></p>
+      		<p>By: <%= User.find(post.user_id).username %></p>
+      		<p>At: <%= post.posttime %></p>
+      	</div>
+      	<% end %> 
+</div>

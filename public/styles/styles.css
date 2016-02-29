@@ -113,6 +113,7 @@ nav a:hover {
 	border: 3px solid red;
 	margin: 0 auto;
 	padding: 1em;
+  overflow: auto;
 }
 
 /* FLASH */
@@ -120,7 +121,6 @@ nav a:hover {
 .flash {
   padding: 1em;
   border-radius: 4px;
-  /*margin-bottom: 10px;*/
 }
 
 .notice {
@@ -226,6 +226,25 @@ textarea:hover {
 	margin: 0 auto;
 	padding: 1em;
 }
+
+#feed {
+  position: relative;
+  /*width: 30em;*/
+  text-align: center;
+  border: 3px solid black;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+#single_feed {
+  position: relative;
+  width: 30em;
+  text-align: center;
+  border: 3px solid black;
+  margin: 0 auto;
+  padding: 1em;
+}
+
 
 
 

@@ -3,6 +3,18 @@
 	<input type="submit" value="Submit">
 </form>
 
+<% if flash[:alert] %>
+	<div class="flash alert">
+		<%= flash[:alert] %>
+	</div>
+<% end %>	
+
+<% if flash[:notice] %>
+	<div class="flash notice">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
 
 	<% @posts.reverse.each do |post| %>
 	      <div id="post">
@@ -12,6 +24,7 @@
 	      	<p><a class="btn" href="/posts/<%= post.id %>/delete">delete post</a></p></div>
 
 	<% end %>
+
 
 
 
