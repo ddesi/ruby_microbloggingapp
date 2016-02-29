@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 has_many :posts
 has_one :profile
+validates :password, length: { minimum: 6 }
 end
 
 class Post < ActiveRecord::Base

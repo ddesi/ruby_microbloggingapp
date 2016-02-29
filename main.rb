@@ -71,14 +71,15 @@ end
 
 post "/profile" do
 
-	@user = current_user.update_attributes(email: params[:email], password: params[:password])
+	@user = current_user.update_attributes(email: params[:email])
+	@user = current_user.update_attributes(password: params[:password])
 	# we could try 
 	# and see if it works even if you update only one param >> nope haha
 	# it only displays the param that you edited once you click on the submit button
 	# ... we could have a separate page to edit the profile and redirect to the profile page
 	redirect "/profile"
 
-	# erb :profile
+	erb :profile
 end
 
 post "/delete" do

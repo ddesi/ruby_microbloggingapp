@@ -41,9 +41,10 @@ header {
   width: 100%;
   margin: 0 auto;
   padding: 0;
-  background-color: #4ECDC4;
+  background-image: url("http://thumbs.dreamstime.com/z/pepperoni-pizza-closeup-appetizing-background-filling-frame-42216649.jpg");
   height: 12em;
   border: 3px solid black;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #maintitle {
