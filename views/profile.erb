@@ -1,27 +1,21 @@
 <br><br>
-
-<h1 id="prouser"><%= current_user.username %></h1>
+<div id="userProfile"><h1><%= current_user.username %></h1>
 <p><%= current_user.email %></p>
-<p><%= current_user.password %></p>
+<p><%= current_user.about %></p>
+<a href ="/editprofile">Edit Profile</a>
+</div>
+
 <!-- <a href="/profile/<%= current_user %>/delete">delete profile</a> -->
-
-<br><br>
-<form method="post" action="/profile">
-	<input type="email" name="email" placeholder="Edit email"><br>
-    <input type="password" name="password" placeholder="Edit password"><br><br>
-	<input type="submit" value="Edit your info">
-</form>
-
-<form method="POST" action="/delete">
-	<input type="submit" value="Delete Your Account">
-</form>
-
-
-<% if flash[:alert] %>
-	<div class="flash alert">
-		<%= flash[:alert] %>
-	</div>
-<% end %>
+<div id="userPosts">
+<% @posts.reverse.each do |post| %>
+	      <div id="post">
+	      	<p><strong>author: </strong><%= post.user_id %></p>
+	      	<p><strong>post: </strong><%= post.body %></p>
+	      	<p><strong> time: </strong><%= post.posttime %></p>
+	      	<p><a class="btn" href="/posts/<%= post.id %>/delete">delete post</a></p></div>
+	
+	<% end %>
+</div>
 
 
 
