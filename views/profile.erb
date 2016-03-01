@@ -1,7 +1,9 @@
 <br><br>
-<div id="userProfile"><h1><%= current_user.username %></h1>
-<p><%= current_user.email %></p>
-<p><%= current_user.about %></p>
+<div id="userProfile">
+
+<h1><%= @users.username %></h1>
+<p><%= @users.email %></p>
+<p><%= @users.about %></p>
 <a href ="/editprofile">Edit Profile</a>
 </div>
 

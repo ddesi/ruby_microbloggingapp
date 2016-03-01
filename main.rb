@@ -15,7 +15,6 @@ def current_user
 	end
 end
 
-
 get "/" do
 	@title_text = "I <3 Pizza"
 
@@ -71,7 +70,7 @@ end
 
 get "/profile" do
 
-  @user = current_user
+  @users = current_user
   @posts = current_user.posts
 
 	erb :profile	
@@ -90,7 +89,7 @@ post "/profile" do
 end
 
 get "/profile/:id" do 
-	@users = User.where(user_id: params[:id])
+	@users = User.find(params[:id])
 	@posts = Post.where(user_id: params[:id])
 	if session[:user_id] == nil
     redirect "/"
