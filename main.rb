@@ -165,11 +165,11 @@ post "/editprofile" do
 
 	@user = current_user
 
-	@user = current_user.update_attributes(email: params[:email])
-	@user = current_user.update_attributes(password: params[:password])
-	@user = current_user.update_attributes(username: params[:username])
-	@user = current_user.update_attributes(about: params[:about])
-	@user = current_user.update_attributes(picture: params[:picture])
+	@user = current_user.update_attributes(email: params[:email]) if params[:email] != ""
+	@user = current_user.update_attributes(password: params[:password]) if params[:password] != ""
+	@user = current_user.update_attributes(username: params[:username]) if params[:username] != ""
+	@user = current_user.update_attributes(about: params[:about]) if params[:about] != ""
+	@user = current_user.update_attributes(picture: params[:picture]) if params[:picture] != ""
 
 	redirect "/profile"
 

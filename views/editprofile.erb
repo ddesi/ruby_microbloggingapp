@@ -1,9 +1,9 @@
 
 <form method="post" action="/editprofile">
-	<input type="email" name="email" placeholder="Edit email"><br>
-    <input type="password" name="password" placeholder="Edit password"><br><br>
-    <input type="text" name="username" placeholder="Edit username"><br><br>
-    <input type="text" name="about" placeholder="Edit about"><br><br>
+	<input type="email" name="email" placeholder="Edit email" value="<%=@user.email%>"><br>
+    <input type="password" name="password" placeholder="Edit password" value="<%=@user.password%>"><br><br>
+    <input type="text" name="username" placeholder="Edit username" value="<%=@user.username%>"><br><br>
+    <input type="text" name="about" placeholder="Edit about" value="<%=@user.about%>"><br><br>
 	<input type="submit" value="Edit your info">
 </form>
 
