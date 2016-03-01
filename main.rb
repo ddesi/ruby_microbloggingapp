@@ -156,11 +156,14 @@ end
 
 get "/editprofile" do
 
+	@user = current_user
+
 	erb :editprofile
 end
 
 post "/editprofile" do
-	user = current_user
+
+	@user = current_user
 
 	@user = current_user.update_attributes(email: params[:email])
 	@user = current_user.update_attributes(password: params[:password])
@@ -168,7 +171,7 @@ post "/editprofile" do
 	@user = current_user.update_attributes(about: params[:about])
 	@user = current_user.update_attributes(picture: params[:picture])
 
-	redirect "/editprofile"
+	redirect "/profile"
 
 end
 

@@ -255,14 +255,14 @@ textarea:hover {
   width: 300px;
   padding: 10px;
   word-wrap: break-word;
-  border: 3px solid black;
+  /*border: 3px solid black;*/
 }
 
 #userPosts {
   float: right;
   margin-right: 150px;
   margin-bottom: 5px;
-  border: 3px solid black;
+  /*border: 3px solid black;*/
 }
 
 #deleteprofile {
@@ -270,9 +270,9 @@ textarea:hover {
   float: left;
   text-align: left;
   width: 300px;
-  padding: 10px;
+  padding: 30px;
   word-wrap: break-word;
-  border: 3px solid black;
+  /*border: 3px solid black;*/
 }
 
 #users {

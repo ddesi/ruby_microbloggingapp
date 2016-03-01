@@ -1,13 +1,4 @@
-<br><br>
 
-<p>Your email and password:</p>
-<p><%= current_user.email %></p>
-<p><%= current_user.password %></p>
-<p><%= current_user.username %></p>
-<p><%= current_user.about %></p>
-<!-- <a href="/profile/<%= current_user %>/delete">delete profile</a> -->
-
-<br><br>
 <form method="post" action="/editprofile">
 	<input type="email" name="email" placeholder="Edit email"><br>
     <input type="password" name="password" placeholder="Edit password"><br><br>
