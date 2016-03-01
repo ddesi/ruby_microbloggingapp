@@ -1,6 +1,5 @@
 /* GENERAL */
 @import url('http://fonts.googleapis.com/css?family=Lato');
-@import url('http://fonts.googleapis.com/css?family=Droid+Sans');
 @import url('http://fonts.googleapis.com/css?family=Roboto');
 
 
@@ -18,7 +17,7 @@ a {
 }
 
 h1 {
-	font-family: "Droid Sans";
+	font-family: "Roboto";
 	font-size: 2.5em;
 	line-height: 1;
 }
@@ -110,7 +109,6 @@ nav a:hover {
 	width: 100%;
 	position: relative;
 	text-align: center;
-	border: 3px solid red;
 	margin: 0 auto;
 	padding: 1em;
   overflow: auto;
@@ -255,15 +253,64 @@ textarea:hover {
   float: left;
   text-align: left;
   width: 300px;
+  padding: 10px;
   word-wrap: break-word;
+  border: 3px solid black;
 }
 
 #userPosts {
   float: right;
   margin-right: 150px;
   margin-bottom: 5px;
+  border: 3px solid black;
 }
 
+#deleteprofile {
+  clear: both;
+  float: left;
+  text-align: left;
+  width: 300px;
+  padding: 10px;
+  word-wrap: break-word;
+  border: 3px solid black;
+}
+
+#users {
+  position: relative;
+  width: 30em;
+  text-align: center;
+  border-left: 3px solid black;
+  margin: 0 auto;
+  padding: 1em;  
+}
+
+#users li {
+  list-style: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+  font-size: 1em;
+  line-height: 1.2;
+}
+
+#users a {
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 10px;
+  width: 120px;
+  height: 50px;
+  line-height: 3;
+  text-decoration: none;
+  color: #000;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+#users a:hover {
+  background-color: #FF6B6B;
+  opacity: .8;
+  color: #000;
+  text-shadow:none;
+}
 
 
 

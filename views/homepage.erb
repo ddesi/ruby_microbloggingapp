@@ -1,5 +1,5 @@
 <form method="post" action="/homepage">
-	<textarea name="body" placeholder="share your pizza" rows="6"></textarea><br><br><br>
+	<textarea name="body" placeholder="share your pizza in 150 characters or less!" rows="10" maxlength="150"></textarea><br><br><br>
 	<input type="submit" value="Submit">
 </form>
 
@@ -18,7 +18,7 @@
 
 	<% @posts.reverse.each do |post| %>
 	      <div id="post">
-	      	<p><strong>author: </strong><%= post.user_id %></p>
+	      	<p><strong>by: </strong><%= User.find(post.user_id).username %></p>
 	      	<p><strong>post: </strong><%= post.body %></p>
 	      	<p><strong> time: </strong><%= post.posttime %></p>
 	      	<p><a class="btn" href="/posts/<%= post.id %>/delete">delete post</a></p></div>

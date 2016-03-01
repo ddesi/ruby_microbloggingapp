@@ -2,12 +2,11 @@
 <div id="userProfile">
 
 <h1><%= @users.username %></h1>
-<p><%= @users.email %></p>
-<p><%= @users.about %></p>
-<a href ="/editprofile">Edit Profile</a>
+<p>Email: <%= @users.email %></p>
+<p>About: <%= @users.about %></p>
+
 </div>
 
-<!-- <a href="/profile/<%= current_user %>/delete">delete profile</a> -->
 <div id="userPosts">
 <% @posts.reverse_each do |post| %>
 	      <div id="post">
@@ -17,6 +16,12 @@
 	      	<p><a class="btn" href="/posts/<%= post.id %>/delete">delete post</a></p></div>
 	
 	<% end %>
+</div>
+
+<div id="deleteprofile">
+
+<a class="btn" href ="/editprofile">Edit Your Profile Info</a>
+
 </div>
 
 
