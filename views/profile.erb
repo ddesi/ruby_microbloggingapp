@@ -7,7 +7,7 @@
 
 <!-- <a href="/profile/<%= current_user %>/delete">delete profile</a> -->
 <div id="userPosts">
-<% @posts.reverse.each do |post| %>
+<% @posts.reverse_each do |post| %>
 	      <div id="post">
 	      	<p>By: <%= User.find(post.user_id).username %></p>
 	      	<p><strong>post: </strong><%= post.body %></p>

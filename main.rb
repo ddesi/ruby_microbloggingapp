@@ -77,21 +77,44 @@ get "/profile" do
 	erb :profile	
 end
 
-# get "profile/:id"
-# erb :profile	
-# end
-
 post "/profile" do
 	@user = current_user
 
 	@timestamp = Time.now.strftime("%Y-%m-%d")
 
-	@post = Post.create(user_id: session[:user_id], body: params[:body], posttime: @timestamp)
+	@posts = Post.where(user_id: session[:user_id], body: params[:body], posttime: @timestamp)
 	
 	redirect "/profile"
 
 	erb :profile
 end
+
+get "/profile/:id" do 
+	@users = User.where(user_id: params[:id])
+	@posts = Post.where(user_id: params[:id])
+	if session[:user_id] == nil
+    redirect "/"
+  	end
+
+  	erb :profile
+
+ end
+
+get "/users" do
+	if session[:user_id] == nil
+
+		redirect "/"
+	end
+
+	@users = User.all
+
+	erb :users
+end
+
+# get "/users/:id" do
+#  	@ user = User.find(params[:id])
+
+# end
 
 post "/delete" do
   @user = current_user
@@ -151,24 +174,6 @@ post "/editprofile" do
 end
 
 
-get "/profile/:id" do 
-
-	if session[:user_id] == nil
-    redirect "/"
-  	end
-
- end
-
-get "/users" do
-	if session[:user_id] == nil
-
-		redirect "/"
-	end
-
-	@users = User.all
-
-	erb :users
-end
 
 
 
